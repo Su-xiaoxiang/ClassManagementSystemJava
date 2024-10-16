@@ -1,6 +1,6 @@
-# Spring Boot MySQL Lombok Redis MyBatis JWT Starter
+# ClassManagementSystemJava
 
-基于 `Spring Boot` 的 `MySQL` + `Lombok` + `Redis` + `MyBatis` + `JWT` 脚手架模板。
+基于 `Spring Boot` 的 `MySQL` + `Lombok` + `Redis` + `MyBatis` + `JWT` ClassManagementSystemJava项目。
 
 ## 🚀 特性
 
@@ -14,7 +14,15 @@
 ## 📦 生态系统
 
 在这里，你可以找到许多现成的模板，包含 `Spring Boot`、`Vite`、`Tailwind CSS` 等技术栈。推荐访问我的 GitHub 主页以获取更多资源。
-
+## 📦 项目介绍
+```bash
+本项目为班级管理系统项目 为后端工程. 此项目采用前后端分离的架构，前端使用 Vue 3、Tailwind CSS、Vant 和 Element Plus，后端使用 Spring Boot 和 MyBatis。
+未经过允许的情况下，请忽运作商业用途
+```
+## 🚀项目进度
+```bash
+1. 完成用户登录功能
+```
 ## 📖 快速开始
 
 ### 1. 克隆项目
