@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lingnuokeji.ClassManagementSystemJava.mapper.HomePageMapper">
+    <resultMap id="ImgcarouselVOResultMap" type="com.lingnuokeji.ClassManagementSystemJava.pojo.VO.ImgcarouselVO">
+        <result property="ImgCarouselId" column="ImgCarousel_id"/>
+        <result property="ImgCarouselUrl" column="ImgCarousel_url"/>
+        <result property="ImgCarouselIsShow" column="ImgCarousel_isShow"/>
+    </resultMap>
+
+    <select id="getImgCarousel" resultMap="ImgcarouselVOResultMap">
+        SELECT * FROM imgcarousel where ImgCarousel_isShow = 1
+    </select>
+</mapper>

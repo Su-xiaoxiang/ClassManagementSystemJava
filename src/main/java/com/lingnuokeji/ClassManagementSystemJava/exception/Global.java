@@ -21,7 +21,7 @@ public class Global {
      */
     @ExceptionHandler(Exception.class)
     public Result ex(Exception Bigex){
-        log.info(String.valueOf(Bigex));
+          log.info(String.valueOf(Bigex));
          return Result.error("对不起，操作失败请联系管理员");
     }
 }

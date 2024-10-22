@@ -1,4 +1,4 @@
-package com.lingnuokeji.ClassManagementSystemJava.exception;
+package com.lingnuokeji.ClassManagementSystemJava.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

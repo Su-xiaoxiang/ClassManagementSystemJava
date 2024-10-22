@@ -1,4 +1,4 @@
-package com.lingnuokeji.ClassManagementSystemJava.exception;
+package com.lingnuokeji.ClassManagementSystemJava.config;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
