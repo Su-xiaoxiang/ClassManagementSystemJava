@@ -1,8 +1,9 @@
 package com.lingnuokeji.ClassManagementSystemJava.mapper;
 
+import com.lingnuokeji.ClassManagementSystemJava.pojo.VO.CLassCommitteeVO;
+import com.lingnuokeji.ClassManagementSystemJava.pojo.VO.HomeActivitiesVO;
 import com.lingnuokeji.ClassManagementSystemJava.pojo.VO.ImgcarouselVO;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -21,5 +22,21 @@ public interface HomePageMapper {
      * @date 2024/10/22 21:20
      */
 
-    List<ImgcarouselVO> getImgCarousel();
+    List<ImgcarouselVO> getImgCarousel(Integer classId);
+
+    /**
+     * 获取班级委员会信息
+     * @Username 程序员-Su_xiaoxiang
+     * @date 2024/10/23 23:33
+     * @return List<CLassCommitteeVO>
+     */
+    List<CLassCommitteeVO> getCLassCommittee(Integer classId);
+
+    /**
+     * 获取活动信息
+     * @Username 程序员-Su_xiaoxiang
+     * @date 2024/10/24 0:17
+     * @return  List<HomeActivitiesVO>
+     */
+    List<HomeActivitiesVO> getActivities(Integer classId);
 }

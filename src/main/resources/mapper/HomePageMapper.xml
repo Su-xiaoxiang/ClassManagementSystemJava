@@ -6,8 +6,34 @@
         <result property="ImgCarouselUrl" column="ImgCarousel_url"/>
         <result property="ImgCarouselIsShow" column="ImgCarousel_isShow"/>
     </resultMap>
-
+    <resultMap id="CLassCommitteeVOResultMap" type="com.lingnuokeji.ClassManagementSystemJava.pojo.VO.CLassCommitteeVO">
+        <result property="committeeName" column="committee_name"/>
+        <result property="classrolesName" column="classroles_name"/>
+        <result property="Phone" column="phone"/>
+    </resultMap>
+    <resultMap id="HomeActivitiesVOResultMap" type="com.lingnuokeji.ClassManagementSystemJava.pojo.VO.HomeActivitiesVO">
+        <result property="activiteName" column="activite_name"/>
+        <result property="activiteDate" column="activite_date"/>
+        <result property="address" column="address"/>
+    </resultMap>
     <select id="getImgCarousel" resultMap="ImgcarouselVOResultMap">
-        SELECT * FROM imgcarousel where ImgCarousel_isShow = 1
+        SELECT *
+        FROM imgcarousel
+        where ImgCarousel_isShow = 1
+          and Class_id = #{classId}
+    </select>
+    <select id="getCLassCommittee" resultMap="CLassCommitteeVOResultMap">
+        SELECT ci.committee_name, cr.classroles_name, ci.phone
+        FROM classcommitteeinformation ci
+                 JOIN classroles cr ON ci.committee_position = cr.classroles_id
+        WHERE ci.classId = #{classId}
+        ORDER BY ci.committee_position ASC;
+    </select>
+    <select id="getActivities" resultMap="HomeActivitiesVOResultMap">
+        select am.activite_name, am.activite_date,am.address
+        from activitymain am
+                 join classschedule cc on am.Class_id = cc.Class_id
+        where am.class_id = #{classId}
+        ORDER BY am.activite_date DESC
     </select>
 </mapper>

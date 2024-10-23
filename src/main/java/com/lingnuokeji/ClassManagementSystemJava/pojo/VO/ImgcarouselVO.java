@@ -16,4 +16,5 @@ public class ImgcarouselVO {
    private  Integer ImgCarouselId; // 图片轮播id
    private  String ImgCarouselUrl; // 图片地址
    private  Integer ImgCarouselIsShow; // 图片标题 1 显示 0 不显示
+   private  Integer classId; // 班级id
 }

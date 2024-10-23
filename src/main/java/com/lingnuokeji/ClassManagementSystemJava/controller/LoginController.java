@@ -53,8 +53,9 @@ public class LoginController {
             // 返回新的登录信息
             Map<String, Object> userLoginInfo = new HashMap<>();
             userLoginInfo.put("userId", userId);
-            userLoginInfo.put("rolesid", userVo.getRolesid());
+            userLoginInfo.put("rolesid", userVo.getRoles());
             userLoginInfo.put("token", newJwt);
+            userLoginInfo.put("classId", userVo.getClassId());
             return Result.success(userLoginInfo);
         } else {
             return Result.error("用户名或密码错误");
