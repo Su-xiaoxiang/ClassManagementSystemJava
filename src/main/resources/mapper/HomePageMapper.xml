@@ -2,19 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lingnuokeji.ClassManagementSystemJava.mapper.HomePageMapper">
     <resultMap id="ImgcarouselVOResultMap" type="com.lingnuokeji.ClassManagementSystemJava.pojo.VO.ImgcarouselVO">
-        <result property="ImgCarouselId" column="ImgCarousel_id"/>
-        <result property="ImgCarouselUrl" column="ImgCarousel_url"/>
-        <result property="ImgCarouselIsShow" column="ImgCarousel_isShow"/>
+        <result property="imgCarouselId" column="ImgCarousel_id"/>
+        <result property="imgCarouselUrl" column="ImgCarousel_url"/>
+        <result property="imgCarouselIsShow" column="ImgCarousel_isShow"/>
     </resultMap>
     <resultMap id="CLassCommitteeVOResultMap" type="com.lingnuokeji.ClassManagementSystemJava.pojo.VO.CLassCommitteeVO">
         <result property="committeeName" column="committee_name"/>
         <result property="classrolesName" column="classroles_name"/>
-        <result property="Phone" column="phone"/>
+        <result property="phone" column="phone"/>
     </resultMap>
     <resultMap id="HomeActivitiesVOResultMap" type="com.lingnuokeji.ClassManagementSystemJava.pojo.VO.HomeActivitiesVO">
         <result property="activiteName" column="activite_name"/>
         <result property="activiteDate" column="activite_date"/>
         <result property="address" column="address"/>
+    </resultMap>
+    <resultMap id="HomeResourcesVOResultMap" type="com.lingnuokeji.ClassManagementSystemJava.pojo.VO.studyResourcesVO">
+        <result property="studyResourcesId" column="Learning_resources_id"/>
+        <result property="studyResourcesName" column="Learning_resources_name"/>
+        <result property="studyResourcesUrl" column="Learning_resources_link"/>
     </resultMap>
     <select id="getImgCarousel" resultMap="ImgcarouselVOResultMap">
         SELECT *
@@ -35,5 +40,8 @@
                  join classschedule cc on am.Class_id = cc.Class_id
         where am.class_id = #{classId}
         ORDER BY am.activite_date DESC
+    </select>
+    <select id="getStudyResources" resultMap="HomeResourcesVOResultMap">
+           select * from learningresources where Learning_resources_classId = #{classId}
     </select>
 </mapper>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lingnuokeji.ClassManagementSystemJava.mapper.PersonalInformationMapper">
+
+    <select id="getPersonalInformation" resultType="com.lingnuokeji.ClassManagementSystemJava.pojo.VO.PersonalInformationVO">
+        SELECT
+            u.name AS personalInformationName,  -- 姓名
+            pi.Personal_Information_XueHao AS personalInformationXueHao,  -- 学号
+            cs.Class_name AS personalInformationClassName,  -- 班级
+            cr.classroles_name AS personalInformationJob,  -- 职位
+            pi.Personal_Information_decription AS personalInformationDescription,  -- 个人描述
+            pi.Personal_Information_img AS personalInformationImg  -- 个人头像
+        FROM
+            user u
+                JOIN
+            personal_information pi ON u.id = pi.Personal_Information_Id
+                JOIN
+            classroles cr ON pi.Personal_Information_Job = cr.classroles_id
+                JOIN
+            classschedule cs ON pi.Personal_Information_Class = cs.Class_id
+        WHERE
+            u.id = #{userId};
+    </select>
+</mapper>

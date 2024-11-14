@@ -4,6 +4,7 @@ import com.lingnuokeji.ClassManagementSystemJava.pojo.Result;
 import com.lingnuokeji.ClassManagementSystemJava.pojo.VO.CLassCommitteeVO;
 import com.lingnuokeji.ClassManagementSystemJava.pojo.VO.HomeActivitiesVO;
 import com.lingnuokeji.ClassManagementSystemJava.pojo.VO.ImgcarouselVO;
+import com.lingnuokeji.ClassManagementSystemJava.pojo.VO.studyResourcesVO;
 import com.lingnuokeji.ClassManagementSystemJava.service.HomePageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.swing.plaf.PanelUI;
 import java.util.List;
 
 /**
@@ -47,9 +47,9 @@ public class HomePageController {
     @GetMapping("/getCLassCommittee")
     public Result getCLassCommittee(@RequestParam(value = "classId") Integer classId){
         log.info("执行【getCLassCommittee接口】获取班委成员,当前班级id为：{}",classId);
-        List<CLassCommitteeVO> CLassCommittee = homePageService.getCLassCommittee(classId);
+        List<CLassCommitteeVO> cLassCommittee = homePageService.getCLassCommittee(classId);
         log.info("班委成员获取成功");
-        return Result.success(CLassCommittee);
+        return Result.success(cLassCommittee);
     }
 
     /**
@@ -63,5 +63,19 @@ public class HomePageController {
         List<HomeActivitiesVO> activities = homePageService.getActivities(classId);
         log.info("活动信息获取成功");
         return Result.success(activities);
+    }
+
+    /**
+     *  获取学习资源
+     * @Username 程序员-Su_xiaoxiang
+     * @date 2024/11/14 23:31
+     * @return studyResources
+     */
+    @GetMapping("/getStudyResources")
+    public Result getStudyResource(@RequestParam(value = "classId") Integer classId){
+        log.info("执行【getStudyResource接口】获取学习资源,当前班级id为：{}",classId);
+        List<studyResourcesVO> studyResources = homePageService.getStudyResource(classId);
+        log.info("学习资源获取成功");
+        return Result.success(studyResources);
     }
 }

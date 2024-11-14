@@ -4,6 +4,7 @@ import com.lingnuokeji.ClassManagementSystemJava.mapper.HomePageMapper;
 import com.lingnuokeji.ClassManagementSystemJava.pojo.VO.CLassCommitteeVO;
 import com.lingnuokeji.ClassManagementSystemJava.pojo.VO.HomeActivitiesVO;
 import com.lingnuokeji.ClassManagementSystemJava.pojo.VO.ImgcarouselVO;
+import com.lingnuokeji.ClassManagementSystemJava.pojo.VO.studyResourcesVO;
 import com.lingnuokeji.ClassManagementSystemJava.service.HomePageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -62,5 +63,19 @@ public class HomePageServicelmpl implements HomePageService {
         List<HomeActivitiesVO> homeActivitiesVOList = homePageMapper.getActivities(classId);
         // 返回HomeActivitiesVOList
         return homeActivitiesVOList;
+    }
+
+    /**
+     * 获取学习资源
+     * @Username 程序员-Su_xiaoxiang
+     * @date 2024/11/14 23:34
+     * @return List<studyResourcesVO>
+     */
+    @Override
+    public List<studyResourcesVO> getStudyResource(Integer classId) {
+        // 调用HomePageMapper的getStudyResources方法
+        List<studyResourcesVO> studyResourcesVOList = homePageMapper.getStudyResources(classId);
+        // 返回studyResourcesVOList
+        return studyResourcesVOList;
     }
 }

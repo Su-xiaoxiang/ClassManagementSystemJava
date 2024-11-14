@@ -3,6 +3,7 @@ package com.lingnuokeji.ClassManagementSystemJava.mapper;
 import com.lingnuokeji.ClassManagementSystemJava.pojo.VO.CLassCommitteeVO;
 import com.lingnuokeji.ClassManagementSystemJava.pojo.VO.HomeActivitiesVO;
 import com.lingnuokeji.ClassManagementSystemJava.pojo.VO.ImgcarouselVO;
+import com.lingnuokeji.ClassManagementSystemJava.pojo.VO.studyResourcesVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -39,4 +40,12 @@ public interface HomePageMapper {
      * @return  List<HomeActivitiesVO>
      */
     List<HomeActivitiesVO> getActivities(Integer classId);
+
+    /**
+     * 获取学习资源信息
+     * @Username 程序员-Su_xiaoxiang
+     * @date 2024/11/14 23:35
+     * @return  List<studyResourcesVO>
+     */
+    List<studyResourcesVO> getStudyResources(Integer classId);
 }
