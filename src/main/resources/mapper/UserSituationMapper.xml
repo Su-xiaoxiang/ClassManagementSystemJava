@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lingnuokeji.ClassManagementSystemJava.mapper.UserSituationMapper">
+
+    <select id="selectUserClassSituation"
+            resultType="com.lingnuokeji.ClassManagementSystemJava.pojo.VO.StudentStatusVO">
+        SELECT
+            c.Course_Name AS courseName,                      -- 课程名称
+            cs.Course_Status_Name AS courseStatus,            -- 课程状态
+            sc.Student_Course_Description AS courseDescription, -- 课程描述
+            sc.Student_Course_Date AS courseStatusDate        -- 课程状态日期
+        FROM
+            studentcoursestatus sc
+                JOIN
+            coursestatus cs ON sc.Course_Status = cs.Course_Status_Id  -- 连接到课程状态表
+                JOIN
+            coursetable c ON sc.Course_ID = c.Course_Id             -- 连接到课程表
+                JOIN
+            user u ON sc.Student_ID = u.id                         -- 连接到用户表 (学生表)
+        WHERE
+            sc.Student_ID = #{userId}  -- 可根据需要替换或指定学生ID
+        ORDER BY
+            sc.Student_Course_Date DESC;  -- 按日期降序排序，从近到远
+
+    </select>
+</mapper>
