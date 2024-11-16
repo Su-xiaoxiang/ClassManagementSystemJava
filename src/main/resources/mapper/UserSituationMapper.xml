@@ -23,4 +23,21 @@
             sc.Student_Course_Date DESC;  -- 按日期降序排序，从近到远
 
     </select>
+    <select id="selectStudentExtracurricularActivities"  resultType="com.lingnuokeji.ClassManagementSystemJava.pojo.VO.StudentExtracurricularActivitiesVO">
+            SELECT
+                StudentExtracurricularActivities_Name AS studentExtracurricularActivitiesName,
+                StudentExtracurricularActivities_Roles AS studentExtracurricularActivitiesRoles,
+                StudentExtracurricularActivities_Description AS studentExtracurricularActivitiesDescription
+           FROM studentextracurricularactivities
+           WHERE StudentExtracurricularActivities_User_ID = #{userId}
+    </select>
+    <select id="selectInternshipinformationVO"
+            resultType="com.lingnuokeji.ClassManagementSystemJava.pojo.VO.InternshipinformationVO">
+        SELECT
+            InternshipInformation_Name AS internshipInformationName ,
+            InternshipInformation_Job AS internshipInformationJob,
+            InternshipInformation_Description AS internshipInformationDescription
+        FROM internshipinformation
+        WHERE InternshipInformation_User_ID = #{userId}
+    </select>
 </mapper>

@@ -1,5 +1,7 @@
 package com.lingnuokeji.ClassManagementSystemJava.service;
 
+import com.lingnuokeji.ClassManagementSystemJava.pojo.VO.InternshipinformationVO;
+import com.lingnuokeji.ClassManagementSystemJava.pojo.VO.StudentExtracurricularActivitiesVO;
 import com.lingnuokeji.ClassManagementSystemJava.pojo.VO.StudentStatusVO;
 
 import java.util.List;
@@ -18,4 +20,20 @@ public interface UserSituationService {
      * @return  List<StudentStatusVO>
      */
     List<StudentStatusVO> selectUserClassSituation(Integer userId);
+
+    /**
+     * 获取学生课外活动情况
+     * @Username 程序员-Su_xiaoxiang
+     * @date 2024/11/16 14:27
+     * @return List<StudentStatusVO>
+     */
+    List<StudentExtracurricularActivitiesVO> selectStudentExtracurricularActivities(Integer userId);
+
+    /**
+     * 获取学生实习信息
+     * @Username 程序员-Su_xiaoxiang
+     * @date 2024/11/16 14:54
+     * @return  List<InternshipinformationVO>
+     */
+    List<InternshipinformationVO> selectInternshipinformation(Integer userId);
 }
