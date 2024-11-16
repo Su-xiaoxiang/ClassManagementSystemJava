@@ -30,7 +30,7 @@
     <select id="getCLassCommittee" resultMap="CLassCommitteeVOResultMap">
         SELECT ci.committee_name, cr.classroles_name, ci.phone
         FROM classcommitteeinformation ci
-                 JOIN classroles cr ON ci.committee_position = cr.classroles_id
+                 JOIN roles r ON ci.committee_position = r.roles_id
         WHERE ci.classId = #{classId}
         ORDER BY ci.committee_position ASC;
     </select>

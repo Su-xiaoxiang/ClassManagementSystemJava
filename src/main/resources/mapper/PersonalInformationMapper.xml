@@ -7,7 +7,7 @@
             u.name AS personalInformationName,  -- 姓名
             pi.Personal_Information_XueHao AS personalInformationXueHao,  -- 学号
             cs.Class_name AS personalInformationClassName,  -- 班级
-            cr.classroles_name AS personalInformationJob,  -- 职位
+            r.roles_name AS personalInformationJob,  -- 职位
             pi.Personal_Information_decription AS personalInformationDescription,  -- 个人描述
             pi.Personal_Information_img AS personalInformationImg  -- 个人头像
         FROM
@@ -15,7 +15,7 @@
                 JOIN
             personal_information pi ON u.id = pi.Personal_Information_Id
                 JOIN
-            classroles cr ON pi.Personal_Information_Job = cr.classroles_id
+            roles r ON pi.Personal_Information_Job = r.roles_id
                 JOIN
             classschedule cs ON pi.Personal_Information_Class = cs.Class_id
         WHERE

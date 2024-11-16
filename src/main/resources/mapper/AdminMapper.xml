@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lingnuokeji.ClassManagementSystemJava.mapper.AdminMapper">
+
+    <select id="adminSelectUser" resultType="com.lingnuokeji.ClassManagementSystemJava.pojo.VO.adminSelectUserVO">
+           SELECT
+    u.username AS username,
+    u.name AS name,
+    r.roles_name AS job,
+    cs.Class_name AS className
+FROM
+    `user` u
+LEFT JOIN
+    `classschedule` cs ON u.classId = cs.Class_id
+LEFT JOIN
+    `roles` r ON u.roles = r.roles_id
+WHERE
+    u.classId = #{classId} -- 将 '目标班级名称' 替换为具体的班级名称
+ORDER BY
+    u.username ASC;
+
+    </select>
+
+</mapper>
