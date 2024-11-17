@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lingnuokeji.ClassManagementSystemJava.mapper.AdminMapper">
+    <update id="updateUserPassword">
+        UPDATE `user` SET `password` = 123456 WHERE `id` = #{userId}
+    </update>
+    <update id="updateUser">
+       UPDATE  user
+       <set>
+           <if test="name!= null">
+               name = #{name},
+           </if>
+            <if test="job!= null">
+               roles = #{job},
+           </if>
+       </set>
+   where id = #{id}
+
+    </update>
 
     <select id="adminSelectUser" resultType="com.lingnuokeji.ClassManagementSystemJava.pojo.VO.adminSelectUserVO">
            SELECT
+               U.id AS id,
     u.username AS username,
     u.name AS name,
     r.roles_name AS job,
@@ -19,6 +36,24 @@ WHERE
 ORDER BY
     u.username ASC;
 
+    </select>
+    <select id="getRolesList" resultType="com.lingnuokeji.ClassManagementSystemJava.pojo.VO.RolesVO">
+        select
+        roles_id as rolesId,
+        roles_name as rolesName
+    from roles
+    where roles_id != 1;
+    </select>
+    <select id="selectRoles" resultType="com.lingnuokeji.ClassManagementSystemJava.pojo.VO.RolesVO">
+          select
+        roles_id as rolesId,
+        roles_name as rolesName
+    from roles
+    <where>
+        <if test="job!= null">
+            roles_name = #{job}
+        </if>
+    </where>
     </select>
 
 </mapper>

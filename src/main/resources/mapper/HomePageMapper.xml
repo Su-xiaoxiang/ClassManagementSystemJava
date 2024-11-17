@@ -8,7 +8,7 @@
     </resultMap>
     <resultMap id="CLassCommitteeVOResultMap" type="com.lingnuokeji.ClassManagementSystemJava.pojo.VO.CLassCommitteeVO">
         <result property="committeeName" column="committee_name"/>
-        <result property="classrolesName" column="classroles_name"/>
+        <result property="classrolesName" column="roles_name"/>
         <result property="phone" column="phone"/>
     </resultMap>
     <resultMap id="HomeActivitiesVOResultMap" type="com.lingnuokeji.ClassManagementSystemJava.pojo.VO.HomeActivitiesVO">
@@ -28,7 +28,7 @@
           and Class_id = #{classId}
     </select>
     <select id="getCLassCommittee" resultMap="CLassCommitteeVOResultMap">
-        SELECT ci.committee_name, cr.classroles_name, ci.phone
+        SELECT ci.committee_name, r.roles_name , ci.phone
         FROM classcommitteeinformation ci
                  JOIN roles r ON ci.committee_position = r.roles_id
         WHERE ci.classId = #{classId}

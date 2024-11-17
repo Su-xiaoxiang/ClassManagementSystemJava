@@ -71,7 +71,7 @@ public class LoginFitter implements Filter {
             log.info("啦啦啦啦......验证成功放行");
             log.info("----------------------------------------------------");
         } catch (Exception e) {
-            log.info("解析 JWT 失败", e);
+            log.info("解析 JWT 失败");
             sendErrorResponse(srep, "失败验证，请重新登录");
             return;
         }

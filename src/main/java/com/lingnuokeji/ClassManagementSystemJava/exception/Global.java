@@ -3,6 +3,7 @@ package com.lingnuokeji.ClassManagementSystemJava.exception;
 
 
 import com.lingnuokeji.ClassManagementSystemJava.pojo.Result;
+import io.jsonwebtoken.ExpiredJwtException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -29,5 +30,10 @@ public class Global {
     public Result ex(Exception Bigex){
           log.info(String.valueOf(Bigex));
          return Result.error("对不起，操作失败请联系管理员");
+    }
+    @ExceptionHandler(ExpiredJwtException.class)
+    public Result ex1(Exception Bigex){
+          log.info(String.valueOf(Bigex));
+         return Result.error("对不起，JWT操作失败请联系管理员");
     }
 }
